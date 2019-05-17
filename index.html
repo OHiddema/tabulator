@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Neseccary includes for tabulator to work -->
+  <link href="https://unpkg.com/tabulator-tables@4.2.7/dist/css/tabulator.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.2.7/dist/js/tabulator.min.js"></script>
+</head>
+
+<body>
+  <h1>Present a table with Tabulator (Javascript library)</h1>
+  <div id="example-table"></div>
+
+  <script>
+
+    var tabledata = [
+      { id: 1, name: "Oege Hiddema", age: "49", col: "red", dob: "12/05/1969" },
+      { id: 2, name: "Pietje Puk", age: "48", col: "blue", dob: "13/05/1970" },
+      { id: 3, name: "Jan de Vries", age: "47", col: "green", dob: "14/05/1971" },
+      { id: 4, name: "Greta Tromp", age: "46", col: "orange", dob: "15/05/1972" },
+
+      { id: 5, name: "Margreet Klomp", age: "45", col: "yellow", dob: "16/05/1973" },
+      { id: 6, name: "Oege Hiddema", age: "44", col: "red", dob: "12/05/1974" },
+      { id: 7, name: "Pietje Puk", age: "43", col: "blue", dob: "13/05/1975" },
+      { id: 8, name: "Jan de Vries", age: "42", col: "green", dob: "14/05/1976" },
+
+      { id: 9, name: "Greta Tromp", age: "41", col: "orange", dob: "15/05/1977" },
+      { id: 10, name: "Margreet Klomp", age: "40", col: "yellow", dob: "16/05/1978" },
+      { id: 11, name: "Oege Hiddema", age: "39", col: "red", dob: "12/05/1979" },
+      { id: 12, name: "Pietje Puk", age: "37", col: "blue", dob: "13/05/1980" },
+
+      { id: 13, name: "Jan de Vries", age: "36", col: "green", dob: "14/05/1981" },
+      { id: 14, name: "Greta Tromp", age: "35", col: "orange", dob: "15/05/1982" },
+      { id: 15, name: "Margreet Klomp", age: "34", col: "yellow", dob: "16/05/1983" },
+      { id: 16, name: "Oege Hiddema", age: "33", col: "red", dob: "12/05/1984" },
+
+      { id: 17, name: "Pietje Puk", age: "32", col: "blue", dob: "13/05/1985" },
+      { id: 18, name: "Jan de Vries", age: "31", col: "green", dob: "14/05/1986" },
+      { id: 19, name: "Greta Tromp", age: "30", col: "orange", dob: "15/05/1987" },
+      { id: 20, name: "Margreet Klomp", age: "29", col: "yellow", dob: "16/05/1988" },
+    ];
+
+    //create Tabulator on DOM element with id "example-table"
+    var table = new Tabulator("#example-table", {
+      height: 205, // set height of table (in CSS or here)
+      data: tabledata, //assign data to table
+      layout: "fitColumns", //fit columns to width of table (optional)
+      columns: [ //Define Table Columns
+        { title: "Name", field: "name", width: 150 },
+        { title: "Age", field: "age", align: "left", formatter: "progress" },
+        { title: "Favourite Color", field: "col" },
+        { title: "Date Of Birth", field: "dob", sorter: "date", align: "center" },
+      ],
+      rowClick: function (e, row) { //trigger an alert message when the row is clicked
+        alert("Row " + row.getData().id + " Clicked!!!!");
+      },
+    });
+
+  </script>
+</body>
+
+</html>
